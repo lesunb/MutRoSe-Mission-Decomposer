@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
-#include <getopt.h>
+//#include <getopt.h>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
 	int configfile = -1;
 	vector<int> options;
 
-	for (int i = optind; i < argc; i++) {
+	for (int i = 1; i < argc; i++) {
 		if (dfile == -1) dfile = i;
 		else if (jsonfile == -1) jsonfile = i;
 		else if (configfile == -1) configfile = i;
@@ -379,7 +379,7 @@ int main(int argc, char** argv) {
 	knowledge_manager->initialize_objects(sorts, high_level_loc_types, at_instances);
 	knowledge_manager->initialize_world_state(init, init_functions, semantic_mapping, sorts);
 
-	if(verbose) {
+	if(!verbose) {
 		print_world_state(init,init_functions);
 	}
 
@@ -423,7 +423,7 @@ int main(int argc, char** argv) {
 		mission_decomposition = mission_decomposer->build_at_graph(gm_var_map, semantic_mapping);
 	}
 
-	if(verbose) {
+	if(!verbose) {
 		print_mission_decomposition(mission_decomposition); 
 	}
 

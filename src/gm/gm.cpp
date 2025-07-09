@@ -8,6 +8,7 @@
 #include <regex>
 #include <sstream>
 #include <set>
+#include <stack>
 
 typedef boost::graph_traits<GMGraph>::vertex_descriptor vertex_descriptor;
 typedef boost::graph_traits<GMGraph>::edge_descriptor edge_descriptor;

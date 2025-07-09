@@ -40,7 +40,6 @@ struct conditional_effect {
 };
 
 enum reward_type {INTEGER, FLOATINGPOINT, PREDICATE, NONE};
-
 struct reward_change {
 	bool isRewardChangeExpression;
 	reward_type type;

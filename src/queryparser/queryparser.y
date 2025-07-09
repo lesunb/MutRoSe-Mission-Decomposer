@@ -20,8 +20,8 @@
     #include <variant>
     #include <regex>
 
-    #include "../utils/query.hpp"
-    #include "../utils/condition.hpp"
+    #include "utils/query.hpp"
+    #include "utils/condition.hpp"
 
     using namespace std;
 

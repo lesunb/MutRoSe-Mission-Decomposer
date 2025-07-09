@@ -5,8 +5,8 @@
 #include <iostream>
 
 #include <boost/algorithm/string.hpp>
-#include "../queryparser/queryparser.hpp"
-#include "../conditionparser/conditionparser.hpp"
+#include "queryparser/queryparser.hpp"
+#include "conditionparser/conditionparser.hpp"
 
 using namespace std;
 

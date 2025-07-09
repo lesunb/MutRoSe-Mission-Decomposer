@@ -3,11 +3,13 @@
 %{
 	#include <iostream>
 	#include <vector>
+	#include <io.h>
     #include "annotmanager/annotmanager.hpp"
 	#include "rannot.hpp"
 
 	using namespace std;
 %}
+%option nounistd
 %option noyywrap
 
 %%

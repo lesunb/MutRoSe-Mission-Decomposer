@@ -1,12 +1,14 @@
 %{
 	#include <iostream>
 	#include <vector>
+	#include <io.h>
 	#include "utils/parsetree.hpp"
 	#include "utils/cwa.hpp"
 	#include "hddl.hpp"
 	#define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 	using namespace std;
 %}
+%option nounistd
 %option noyywrap
 %option yylineno
 %%

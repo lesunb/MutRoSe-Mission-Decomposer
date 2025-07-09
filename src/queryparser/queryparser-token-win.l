@@ -2,11 +2,13 @@
 %{
 	#include <iostream>
 	#include <vector>
+	#include <io.h>
 	#include "utils/query.hpp"
 	#include "queryparser.hpp"
 
 	using namespace std;
 %}
+%option nounistd
 %option noyywrap
 
 %%

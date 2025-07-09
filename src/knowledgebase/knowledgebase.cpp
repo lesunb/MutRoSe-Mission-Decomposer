@@ -31,6 +31,7 @@ XMLKnowledgeBase::XMLKnowledgeBase(string db_name, pt::ptree knowledge, string r
     set_knowledge(knowledge);
     set_root_key(root_key);
     set_unique_id(unique_id);
+    this->kf_type = XML;
 }
 
 pt::ptree XMLKnowledgeBase::get_knowledge() {

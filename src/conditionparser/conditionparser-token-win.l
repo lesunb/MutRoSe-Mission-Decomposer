@@ -3,11 +3,13 @@
 %{
 	#include <iostream>
 	#include <vector>
+	#include <io.h>
 	#include "utils/condition.hpp"
 	#include "conditionparser.hpp"
 
 	using namespace std;
 %}
+%option nounistd
 %option noyywrap
 
 %%
