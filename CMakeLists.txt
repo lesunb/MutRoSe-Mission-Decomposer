@@ -1,7 +1,6 @@
 SET(FLEX_EXECUTABLE "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_flex.exe")
 SET(BISON_EXECUTABLE "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_bison.exe")
 
-set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake")
 set(FLEX_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(BISON_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src)
 cmake_minimum_required(VERSION 4.0.0)
@@ -39,7 +38,7 @@ add_flex_bison_dependency(conditionparsertoken conditionparser)
 
 
 
-find_package(Boost 1.88.0 REQUIRED COMPONENTS filesystem)
+find_package(Boost 1.83.0 REQUIRED COMPONENTS filesystem)
 IF (Boost_FOUND)
 
     INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
@@ -52,7 +51,6 @@ file(GLOB_RECURSE HEADERS "src/*.hpp")
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${BISON_hddl_OUTPUTS} ${FLEX_hddltoken_OUTPUTS} ${BISON_rannot_OUTPUTS} ${FLEX_rannottoken_OUTPUTS} ${BISON_queryparser_OUTPUTS} ${FLEX_queryparsertoken_OUTPUTS} ${BISON_conditionparser_OUTPUTS} ${FLEX_conditionparsertoken_OUTPUTS})
 IF (Boost_FOUND)
     target_link_libraries(${PROJECT_NAME} PRIVATE Boost::filesystem)
-    message("teste")
 ENDIF()
 # target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
 target_include_directories(${PROJECT_NAME}

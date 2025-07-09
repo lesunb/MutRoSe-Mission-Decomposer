@@ -379,7 +379,7 @@ int main(int argc, char** argv) {
 	knowledge_manager->initialize_objects(sorts, high_level_loc_types, at_instances);
 	knowledge_manager->initialize_world_state(init, init_functions, semantic_mapping, sorts);
 
-	if(!verbose) {
+	if(verbose) {
 		print_world_state(init,init_functions);
 	}
 
@@ -423,7 +423,7 @@ int main(int argc, char** argv) {
 		mission_decomposition = mission_decomposer->build_at_graph(gm_var_map, semantic_mapping);
 	}
 
-	if(!verbose) {
+	if(verbose) {
 		print_mission_decomposition(mission_decomposition); 
 	}
 

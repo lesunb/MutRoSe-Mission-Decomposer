@@ -85,26 +85,26 @@
       "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     },
     {
-      "name": "default",
-      "description": "default preset",
-      "hidden": false,
-      "generator": "Ninja",
-      "installDir": "${sourceDir}",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin"
-      }
-    },
-    {
-      "name": "debug",
+      "name": "debugWindows",
       "description": "debug preset",
       "hidden": false,
       "generator": "Ninja",
       "installDir": "${sourceDir}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin"
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin",
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "FLEX_EXECUTABLE": "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_flex.exe",
+        "BISON_EXECUTABLE": "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_bison.exe"
       }
-    }
+      },
+      {
+        "name": "defaultWindows",
+        "description": "default preset",
+        "inherits": "debugWindows",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release"
+        }
+      }
   ]
 }
