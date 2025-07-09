@@ -4,6 +4,7 @@
     "boost-system",
     "boost-filesystem",
     "boost-atomic",
-    "boost-property-tree"
+    "boost-property-tree",
+    "boost-graph"
   ]
 }
