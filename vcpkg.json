@@ -1,5 +1,9 @@
 {
   "dependencies": [
-    "boost"
+    "boost-core",
+    "boost-system",
+    "boost-filesystem",
+    "boost-atomic",
+    "boost-property-tree"
   ]
 }
