@@ -31,10 +31,7 @@ void FileKnowledgeManager::construct_knowledge_base(map<string, variant<map<stri
         pt::read_xml(std::get<map<string,string>>(cfg[db_name])["path"], db_knowledge);
                     
         db_root = std::get<map<string,string>>(cfg[db_name])["xml_root"];
-		std::cout << "Root key: " << db_knowledge.get<string>("world_db.Delivery.name") << std::endl;
-        for (auto& v : db_knowledge.get_child("world_db")) {
-            std::cout << v.first.data() << std::endl;
-        }
+
         if(db_name == "world_db") {
             XMLKnowledgeBase wk(db_name, db_knowledge, db_root, unique_id);
 

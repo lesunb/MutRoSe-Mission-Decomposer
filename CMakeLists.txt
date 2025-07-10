@@ -36,8 +36,6 @@ add_flex_bison_dependency(queryparsertoken queryparser)
 add_flex_bison_dependency(conditionparsertoken conditionparser)
 
 
-
-
 find_package(Boost 1.83.0 REQUIRED COMPONENTS filesystem)
 IF (Boost_FOUND)
 
@@ -58,16 +56,10 @@ target_include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_BINARY_DIR}/src
 )
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:${PROJECT_NAME}> $<TARGET_FILE_DIR:${PROJECT_NAME}>
-  COMMAND_EXPAND_LISTS
-  )
+
 set_property(TARGET ${PROJECT_NAME} PROPERTY ENABLE_EXPORTS ON)
 
 install(TARGETS 
     ${PROJECT_NAME}
 )
 
-install(FILES $<TARGET_RUNTIME_DLLS:${PROJECT_NAME}>
-        DESTINATION bin
-)

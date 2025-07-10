@@ -94,8 +94,10 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin",
         "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static",
         "FLEX_EXECUTABLE": "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_flex.exe",
-        "BISON_EXECUTABLE": "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_bison.exe"
+        "BISON_EXECUTABLE": "C:/ProgramData/chocolatey/lib/winflexbison3/tools/win_bison.exe",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>",
       }
       },
       {
