@@ -1,7 +1,13 @@
-%define api.prefix {zz}
 // Emitted in the header file, after the definition of YYSTYPE.
+%define api.prefix {zz}
+%{
+    #include <cstdio>
+    #include <cstdlib>
+%}
 %code provides
 {
+    int yylex();                    // Declaração da função scanner
+    void yyerror(const char* msg); // Declaração do tratamento de erro
   // Tell Flex the expected prototype of yylex.
   #define YY_DECL                             \
     int zzlex ()
@@ -17,7 +23,7 @@
     #include <iostream>
     #include <string>
 
-    #include "../annotmanager/annotmanager.hpp"
+    #include "annotmanager/annotmanager.hpp"
 
     using namespace std;
 
@@ -30,8 +36,6 @@
 %}
 
 %locations
-%define parse.error verbose
-%define parse.lac full
 
 %locations
 
@@ -51,13 +55,13 @@
 %type <annot> annot
 %type <annot> input
 %type <annot> expr
-%type <annot> expr-no-pt
-%type <annot> name-no-pt
-%type <annot> expr-or-null
-%type <annot> expr-seq
-%type <annot> expr-par
-%type <annot> expr-fallback
-%type <vstring> STRNAME-list
+%type <annot> expr_no_pt
+%type <annot> name_no_pt
+%type <annot> expr_or_null
+%type <annot> expr_seq
+%type <annot> expr_par
+%type <annot> expr_fallback
+%type <vstring> STRNAME_list
 
 %left KEY_SEQ
 %left KEY_PAR
@@ -67,22 +71,22 @@
 
 %%
 //Filling the map up
-input: STRNAME KEY_END_ID STRNAME-list annot {$$ = $4; $$->related_goal = $1; goals_and_rannots[$1] = $$;}
+input: STRNAME KEY_END_ID STRNAME_list annot {$$ = $4; $$->related_goal = $1; goals_and_rannots[$1] = $$;}
 
-annot: '[' expr-or-null ']' {$$ = $2;} | {$$ = new general_annot();}
+annot: '[' expr_or_null ']' {$$ = $2;} | {$$ = new general_annot();}
 
-expr-or-null: expr {$$ = $1;}
+expr_or_null: expr {$$ = $1;}
             | {$$ = new general_annot();}
 
-expr:  '(' expr-no-pt ')' {$$ = $2;}
-    | expr-no-pt {$$ = $1;}
-    | name-no-pt {$$ = $1;}
+expr:  '(' expr_no_pt ')' {$$ = $2;}
+    | expr_no_pt {$$ = $1;}
+    | name_no_pt {$$ = $1;}
 
-expr-no-pt: expr-seq {$$ = $1;}
-          | expr-par {$$ = $1;}
-          | expr-fallback {$$ = $1;}
+expr_no_pt: expr_seq {$$ = $1;}
+          | expr_par {$$ = $1;}
+          | expr_fallback {$$ = $1;}
 
-expr-seq: expr KEY_SEQ expr {
+expr_seq: expr KEY_SEQ expr {
     $$ = new general_annot();
 
     $$->type = OPERATOR;
@@ -133,7 +137,7 @@ expr-seq: expr KEY_SEQ expr {
     $$->children = children;
 }
 
-expr-par: expr KEY_PAR expr {
+expr_par: expr KEY_PAR expr {
     $$ = new general_annot();
 
     $$->type = OPERATOR;
@@ -184,7 +188,7 @@ expr-par: expr KEY_PAR expr {
     $$->children = children;
 }
 
-expr-fallback: KEY_FALLBACK '(' expr ',' expr ')' {
+expr_fallback: KEY_FALLBACK '(' expr ',' expr ')' {
     $$ = new general_annot();
 
     $$->type = OPERATOR;
@@ -235,7 +239,7 @@ expr-fallback: KEY_FALLBACK '(' expr ',' expr ')' {
     $$->children = children;
 }
 
-name-no-pt: STRNAME {
+name_no_pt: STRNAME {
     $$ = new general_annot();
 
     if($1[0] == 'G') {
@@ -247,7 +251,7 @@ name-no-pt: STRNAME {
     $$->content = $1;
 }
 
-STRNAME-list: STRNAME-list STRNAME {string s($2); free($2); $$->push_back(s);}
+STRNAME_list: STRNAME_list STRNAME {string s($2); free($2); $$->push_back(s);}
 			|  {$$ = new vector<string>();}
 %%
 

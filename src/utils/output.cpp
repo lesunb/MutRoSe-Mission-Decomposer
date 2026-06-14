@@ -5,7 +5,7 @@
 #include <cassert>
 #include "output.hpp"
 #include "parsetree.hpp"
-#include "../hddl/hddl.hpp"
+#include "hddl/hddl.hpp"
 #include "domain.hpp"
 #include "sortexpansion.hpp"
 #include "cwa.hpp"

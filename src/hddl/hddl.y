@@ -5,9 +5,9 @@
 	#include <cassert>
 	#include <string.h>
 	#include <algorithm>
-	#include "../utils/parsetree.hpp"
-	#include "../utils/domain.hpp"
-	#include "../utils/cwa.hpp"
+	#include "utils/parsetree.hpp"
+	#include "utils/domain.hpp"
+	#include "utils/cwa.hpp"
 	
 	using namespace std;
 

@@ -1,7 +1,7 @@
 #include "fileknowledgemanager.hpp"
 
 #include <stack>
-
+#include <iostream>
 #include <boost/foreach.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>

@@ -6,7 +6,7 @@
 #include <boost/foreach.hpp>
 #include <boost/algorithm/string.hpp>
 
-#include "../rannot/rannot.hpp"
+#include "rannot/rannot.hpp"
 #include "math_utils.hpp"
 
 using namespace std;

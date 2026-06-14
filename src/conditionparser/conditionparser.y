@@ -20,7 +20,7 @@
     #include <variant>
     #include <regex>
 
-    #include "../utils/condition.hpp"
+    #include "utils/condition.hpp"
 
     using namespace std;
 

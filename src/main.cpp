@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
-#include <getopt.h>
+//#include <getopt.h>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
 	int configfile = -1;
 	vector<int> options;
 
-	for (int i = optind; i < argc; i++) {
+	for (int i = 1; i < argc; i++) {
 		if (dfile == -1) dfile = i;
 		else if (jsonfile == -1) jsonfile = i;
 		else if (configfile == -1) configfile = i;

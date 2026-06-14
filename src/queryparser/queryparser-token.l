@@ -1,14 +1,12 @@
 %option prefix="xy"
-
 %{
 	#include <iostream>
 	#include <vector>
-	#include "../utils/query.hpp"
+	#include "utils/query.hpp"
 	#include "queryparser.hpp"
 
 	using namespace std;
 %}
-
 %option noyywrap
 
 %%
